@@ -49,7 +49,8 @@
   },
   "Footer": {
     "followUs": "Follow us",
-    "about": "A student community at Antalya Belek University"
+    "about": "A student community at Antalya Belek University",
+    "disclaimer": "This is the website of the AWS Student Builder Group student community at Antalya Belek University. It is not operated or endorsed by Amazon or Amazon Web Services (AWS) and is not an official AWS website. AWS and related marks are trademarks of Amazon.com, Inc. or its affiliates."
   },
   "NotFound": {
     "title": "Page not found",

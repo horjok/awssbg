@@ -35,6 +35,9 @@ export function Footer() {
           </ul>
         </div>
       </div>
+      <div className="border-t border-white/10">
+        <p className="mx-auto max-w-5xl px-4 py-4 text-xs leading-relaxed text-white/70">{t("disclaimer")}</p>
+      </div>
     </footer>
   );
 }

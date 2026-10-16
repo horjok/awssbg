@@ -49,7 +49,8 @@
   },
   "Footer": {
     "followUs": "Bizi takip et",
-    "about": "Antalya Belek Üniversitesi öğrenci topluluğu"
+    "about": "Antalya Belek Üniversitesi öğrenci topluluğu",
+    "disclaimer": "Bu site, Antalya Belek Üniversitesi AWS Student Builder Group öğrenci topluluğunun sitesidir. Amazon veya Amazon Web Services (AWS) tarafından işletilmez, onaylanmaz ve resmi bir AWS sitesi değildir. AWS ve ilgili markalar Amazon.com, Inc. veya bağlı şirketlerinin ticari markalarıdır."
   },
   "NotFound": {
     "title": "Sayfa bulunamadı",

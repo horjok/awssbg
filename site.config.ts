@@ -2,8 +2,8 @@
 // Bir kanal henüz yoksa değerini "" (boş) bırakın; sitede gösterilmez.
 
 export const siteConfig = {
-  // TODO: Kalıcı alan adı belli olunca güncelleyin. QR kod bu adresten üretilir.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://TODO-alan-adi.example",
+  // Sitenin canlı adresi. QR kod bu adresten üretilir; değiştirirseniz basılı QR'lar eski adresi göstermeye devam eder.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://awssbg-cyan.vercel.app",
   name: "AWS Student Builder Group",
   university: "Antalya Belek Üniversitesi",
   social: {
