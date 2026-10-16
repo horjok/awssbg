@@ -89,3 +89,9 @@ Site statik olduğu için taşımak kolay:
    | `/<*>` | `/404.html` | 404 (Rewrite) |
 4. Ortam değişkenlerini (`NEXT_PUBLIC_SITE_URL`, ileride `SHOW_TEAM`) Amplify'da da tanımlayın.
 5. Alan adının DNS kaydını Amplify'a yönlendirin. QR kodlar aynı alan adını gösterdiği için çalışmaya devam eder.
+
+> **Basılı QR kodlar `*.vercel.app` adresini gösteriyorsa:** Taşıma sonrasında Vercel projesini **silmeyin**.
+> Vercel'de kalan kopyada `vercel.json` içeriğini aşağıdakiyle değiştirin. Böylece eski adrese gelen herkes yeni siteye yönlendirilir:
+> ```json
+> { "redirects": [{ "source": "/:path*", "destination": "https://YENI-ADRES/:path*", "permanent": true }] }
+> ```
