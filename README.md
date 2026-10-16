@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AWS Student Builder Group — Antalya Belek Üniversitesi
 
-## Getting Started
+Topluluğun web sitesi. Next.js (App Router) + TypeScript + Tailwind CSS ile yazıldı. Türkçe (`/tr`) ve İngilizce (`/en`) olarak iki dilde yayınlanıyor.
+Site **statik** olarak üretiliyor: `npm run build` komutu `out/` klasörüne yalnızca HTML, CSS ve JS dosyaları yazıyor. Sunucu, veritabanı ya da CMS yok.
 
-First, run the development server:
+## Yerelde çalıştırma
+
+Gerekenler: [Node.js](https://nodejs.org) 22 veya üstü.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install      # ilk seferde bir kez
+npm run dev      # geliştirme sunucusu → http://localhost:3000/tr/
+npm run build    # yayına hazır statik site → out/ klasörü
+npm run lint     # kod kontrolü
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Sık yapılan değişiklikler
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Sosyal medya linkleri ve site adresi
+Tümü tek dosyada: **`site.config.ts`**.
+- Henüz açılmamış bir kanalın değerini `""` (boş) bırakın; o kanal sitede gösterilmez.
+- `url` alanı sitenin canlı adresi. QR kod bu adresten üretiliyor.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Arayüz metinleri
+- Türkçe metinler: `messages/tr.json`
+- İngilizce metinler: `messages/en.json`
 
-## Learn More
+İki dosyanın yapısı aynı olmalı. Bir metni değiştirirken diğer dildeki karşılığını da güncelleyin.
+`_TODO` alanı sitede gösterilmez. Resmi bilgi gelince doldurulacak konuların listesi orada tutuluyor.
 
-To learn more about Next.js, take a look at the following resources:
+### Renkler
+`app/globals.css` dosyasının başındaki `@theme` bloğunda tanımlı. Değeri değiştirdiğinizde tüm site güncellenir.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Logo
+Şu an geçici, metin tabanlı bir logo kullanılıyor: `components/Logo.tsx`. Gerçek logo gelince yalnızca bu dosyayı değiştirmeniz yeterli.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Yeni etkinlik / duyuru / kaynak ekleme
+*(Aşama 2 ve 3'te eklenecek; adım adım talimatlar buraya yazılacak.)*
 
-## Deploy on Vercel
+## QR kod
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run qr                                # site.config.ts'teki adres için
+npm run qr -- https://alan-adiniz.com/tr/ # başka bir adres için
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Komut iki dosya üretir:
+- `qr/site-qr.svg`: baskı için bunu kullanın, kalite kaybı olmadan büyütülebilir.
+- `qr/site-qr.png`: 2000×2000 piksel.
+
+Adres henüz ayarlanmadıysa (içinde `TODO` geçiyorsa) script bilerek hata verir, yanlış bir QR basılmasın diye.
+**Not:** Basılan QR'ın içindeki adres sonradan değiştirilemez. Bu yüzden QR'ı kalıcı bir alan adıyla üretin. Geçici `*.vercel.app` adresiyle üretilen QR'lar, siteyi başka bir yere taşıdığınızda çalışmaz.
+
+## `SHOW_TEAM` bayrağı
+*(Aşama 3'te eklenecek.)* Ekip sayfası, resmi duyuru yapılana kadar gizli tutulacak. `SHOW_TEAM=true` tanımlanmadıkça ekip sayfası build çıktısına hiç girmeyecek ve isimler hiçbir dosyada yer almayacak.
+
+## Yayınlama (Vercel)
+
+1. Kodu GitHub'a gönderin.
+2. vercel.com üzerinde **Add New → Project** ile repoyu içe aktarın. Framework olarak Next.js otomatik algılanır, ek ayar gerekmez.
+3. Ortam değişkeni (isteğe bağlı): `NEXT_PUBLIC_SITE_URL=https://alan-adiniz.com`
+
+`vercel.json` dosyası yalnızca `/` → `/tr/` yönlendirmesini tanımlıyor. Vercel'e özel başka bir servis kullanılmıyor.
+
+## İleride AWS Amplify'a taşıma
+
+Site statik olduğu için taşımak kolay:
+
+1. Amplify Console → **Create new app** → GitHub reposunu bağlayın.
+2. Build ayarları (`amplify.yml`):
+   ```yaml
+   version: 1
+   frontend:
+     phases:
+       preBuild:
+         commands: [npm ci]
+       build:
+         commands: [npm run build]
+     artifacts:
+       baseDirectory: out
+       files: ['**/*']
+     cache:
+       paths: [node_modules/**/*]
+   ```
+3. **Rewrites and redirects** bölümüne şu kuralları ekleyin (`vercel.json` dosyasının karşılığı):
+   | Source | Target | Type |
+   |---|---|---|
+   | `/` | `/tr/` | 302 |
+   | `/<*>` | `/404.html` | 404 (Rewrite) |
+4. Ortam değişkenlerini (`NEXT_PUBLIC_SITE_URL`, ileride `SHOW_TEAM`) Amplify'da da tanımlayın.
+5. Alan adının DNS kaydını Amplify'a yönlendirin. QR kodlar aynı alan adını gösterdiği için çalışmaya devam eder.
