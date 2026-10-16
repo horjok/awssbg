@@ -1,0 +1,58 @@
+{
+  "_TODO": "Sitede gösterilmez. Doldurulacaklar: (1) AWS'nin topluluk üyelerine sağladığı resmi faydalar (kredi, sertifika indirimi vb.) — resmi kaynaktan teyit edilmeden siteye eklenmeyecek. (2) Topluluğun AWS ile resmi ilişkisini anlatan cümle (marka kullanım kuralları teyit edilince).",
+  "Metadata": {
+    "title": "AWS Student Builder Group — Antalya Belek Üniversitesi",
+    "description": "Antalya Belek Üniversitesi'nde bulut teknolojilerini birlikte öğrenen ve üreten öğrenci topluluğu. Etkinlikler, atölyeler ve öğrenme kaynakları."
+  },
+  "Header": {
+    "skipToContent": "İçeriğe geç",
+    "home": "Ana sayfa",
+    "join": "Katıl",
+    "switchLanguage": "Switch to English"
+  },
+  "Hero": {
+    "kicker": "Antalya Belek Üniversitesi",
+    "title": "AWS Student Builder Group",
+    "description": "Bulut teknolojilerini birlikte öğrenen, deneyen ve üreten bir öğrenci topluluğuyuz. Bölümün ya da seviyen ne olursa olsun aramıza katılabilirsin."
+  },
+  "Join": {
+    "title": "Topluluğa katıl",
+    "lead": "Etkinlik ve duyuruları kaçırmamak için kanallarımızdan birine katıl.",
+    "newTab": "(yeni sekmede açılır)",
+    "channels": {
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp grubu",
+      "discord": "Discord sunucusu"
+    }
+  },
+  "Why": {
+    "title": "Neden katılmalısın?",
+    "items": {
+      "learn": {
+        "title": "Uygulayarak öğren",
+        "body": "Atölyelerde bulut teknolojilerini adım adım, elini klavyeye koyarak öğren."
+      },
+      "build": {
+        "title": "Birlikte üret",
+        "body": "Proje fikirlerini ekip arkadaşlarınla birlikte hayata geçir."
+      },
+      "network": {
+        "title": "Yeni insanlarla tanış",
+        "body": "Farklı bölümlerden, bulut ve yazılıma ilgi duyan öğrencilerle tanış."
+      },
+      "certify": {
+        "title": "Sertifikaya birlikte hazırlan",
+        "body": "Cloud Practitioner ile başlayan sertifika yol haritasında birlikte çalış."
+      }
+    }
+  },
+  "Footer": {
+    "followUs": "Bizi takip et",
+    "about": "Antalya Belek Üniversitesi öğrenci topluluğu"
+  },
+  "NotFound": {
+    "title": "Sayfa bulunamadı",
+    "back": "Ana sayfaya dön"
+  }
+}

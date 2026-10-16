@@ -1,0 +1,58 @@
+{
+  "_TODO": "Not shown on the site. To fill in: (1) Official benefits AWS provides to community members (credits, certification discounts, etc.) — not to be added until confirmed from an official source. (2) A sentence on the community's official relationship with AWS (once brand usage rules are confirmed).",
+  "Metadata": {
+    "title": "AWS Student Builder Group — Antalya Belek University",
+    "description": "A student community at Antalya Belek University that learns and builds with cloud technologies together. Events, workshops and learning resources."
+  },
+  "Header": {
+    "skipToContent": "Skip to content",
+    "home": "Home",
+    "join": "Join",
+    "switchLanguage": "Türkçe'ye geç"
+  },
+  "Hero": {
+    "kicker": "Antalya Belek University",
+    "title": "AWS Student Builder Group",
+    "description": "We are a student community that learns, experiments and builds with cloud technologies together. Whatever your major or level, you are welcome to join us."
+  },
+  "Join": {
+    "title": "Join the community",
+    "lead": "Join one of our channels so you never miss an event or announcement.",
+    "newTab": "(opens in a new tab)",
+    "channels": {
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp group",
+      "discord": "Discord server"
+    }
+  },
+  "Why": {
+    "title": "Why join?",
+    "items": {
+      "learn": {
+        "title": "Learn by doing",
+        "body": "Learn cloud technologies step by step in hands-on workshops."
+      },
+      "build": {
+        "title": "Build together",
+        "body": "Turn your project ideas into reality with your teammates."
+      },
+      "network": {
+        "title": "Meet new people",
+        "body": "Meet students from different departments who are into cloud and software."
+      },
+      "certify": {
+        "title": "Prepare for certification together",
+        "body": "Work through a certification roadmap that starts with Cloud Practitioner."
+      }
+    }
+  },
+  "Footer": {
+    "followUs": "Follow us",
+    "about": "A student community at Antalya Belek University"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "back": "Back to home"
+  }
+}

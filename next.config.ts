@@ -1,9 +1,15 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Statik çıktı: `next build` → `out/` klasörü. Vercel ve Amplify'da aynı şekilde servis edilir.
+  output: "export",
+  // `/tr/events` → `out/tr/events/index.html`; statik sunucularda (S3/Amplify) sorunsuz çalışır.
+  trailingSlash: true,
+  // Statik çıktıda Next.js görsel optimizasyon sunucusu yok; görseller olduğu gibi servis edilir.
+  images: { unoptimized: true },
   turbopack: {
     rules: {
       "*.css": {
@@ -14,4 +20,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
